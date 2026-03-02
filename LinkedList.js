@@ -25,20 +25,20 @@ export default class LinkedList {
 			this._head = node;
 			this._tail = node;
 			this._size++;
-			return ;
+			return;
 		}
 		this._tail.next = node;
 		this._tail = node;
 		this._size++;
 	}
 
-	prepend(value){
+	prepend(value) {
 		const node = new Node(value);
 		if (this._head == undefined) {
 			this._head = node;
 			this._tail = node;
 			this._size++;
-			return ;
+			return;
 		}
 		node.next = this._head;
 		this._head = node;
@@ -48,8 +48,7 @@ export default class LinkedList {
 	pop() {
 		if (this._size == 0) return;
 		let head = this._head;
-		if (this._size == 1)
-		{
+		if (this._size == 1) {
 			this._head = undefined;
 			this._tail = undefined;
 			this._size--;
@@ -64,5 +63,16 @@ export default class LinkedList {
 		this._tail = head;
 		this._size--;
 		return (next);
+	}
+
+	at(index) {
+		if (index < 0 || index >= this._size)
+			return undefined;
+		let head = this._head;
+		for(let i = 0; i < this._size; i++)
+		{
+			if (i == index) return head;
+			head = head.next;
+		}
 	}
 }
