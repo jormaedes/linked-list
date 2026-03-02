@@ -103,4 +103,26 @@ export default class LinkedList {
 		str += " null";
 		return (str);
 	}
+
+	insertAt(index, ...values)
+	{
+		if (index < 0 || index >= this._size)
+			throw RangeError("RangeError");
+		let nodeBefore = this.at(index - 1);
+		let nodeCurrent = this.at(index);
+		let i = 0;
+		if (!nodeBefore)
+		{
+			nodeBefore = new Node(values[i]);
+			this._head = nodeBefore;
+			this._size++;
+			i++;
+		}
+		for(; i < values.length; i++) {
+			nodeBefore.next = new Node(values[i]);
+			nodeBefore = nodeBefore.next;
+			this._size++;
+		}
+		nodeBefore.next = nodeCurrent;
+	}
 }
