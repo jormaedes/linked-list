@@ -1,6 +1,6 @@
-import Node from "./Node";
+import Node from "./Node.js";
 
-class LinkedList {
+export default class LinkedList {
 	constructor() {
 		this._head = undefined;
 		this._tail = undefined;
@@ -17,5 +17,18 @@ class LinkedList {
 
 	tail() {
 		return this._tail;
+	}
+
+	append(value) {
+		const node = new Node(value);
+		if (this._head == undefined) {
+			this._head = node;
+			this._tail = node;
+			this._size++;
+			return ;
+		}
+		this._tail.next = node;
+		this._tail = node;
+		this._size++;
 	}
 }
