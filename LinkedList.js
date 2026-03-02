@@ -69,8 +69,7 @@ export default class LinkedList {
 		if (index < 0 || index >= this._size)
 			return undefined;
 		let head = this._head;
-		for(let i = 0; i < this._size; i++)
-		{
+		for (let i = 0; i < this._size; i++) {
 			if (i == index) return head;
 			head = head.next;
 		}
@@ -78,11 +77,19 @@ export default class LinkedList {
 
 	contains(value) {
 		let head = this._head;
-		while(head)
-		{
+		while (head) {
 			if (head.value === value) return true;
 			head = head.next;
 		}
 		return false;
+	}
+
+	findIndex(value) {
+		let head = this._head;
+		for (let i = 0; i < this._size; i++) {
+			if (head.value === value) return i;
+			head = head.next;
+		}
+		return -1;
 	}
 }
