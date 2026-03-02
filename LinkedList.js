@@ -2,8 +2,8 @@ import Node from "./Node";
 
 class LinkedList {
 	constructor() {
-		this.head = null;
-		this.tail = null;
-		this.size = 0;
+		this._head = null;
+		this._tail = null;
+		this._size = 0;
 	}
 }
