@@ -6,4 +6,8 @@ class LinkedList {
 		this._tail = null;
 		this._size = 0;
 	}
+
+	size() {
+		return this._size;
+	}
 }
