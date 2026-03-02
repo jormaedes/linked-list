@@ -44,4 +44,25 @@ export default class LinkedList {
 		this._head = node;
 		this._size++;
 	}
+
+	pop() {
+		if (this._size == 0) return;
+		let head = this._head;
+		if (this._size == 1)
+		{
+			this._head = undefined;
+			this._tail = undefined;
+			this._size--;
+			return (head);
+		}
+		let next = head.next;
+		while (next.next) {
+			head = head.next;
+			next = next.next;
+		}
+		head.next = undefined;
+		this._tail = head;
+		this._size--;
+		return (next);
+	}
 }
