@@ -31,4 +31,17 @@ export default class LinkedList {
 		this._tail = node;
 		this._size++;
 	}
+
+	prepend(value){
+		const node = new Node(value);
+		if (this._head == undefined) {
+			this._head = node;
+			this._tail = node;
+			this._size++;
+			return ;
+		}
+		node.next = this._head;
+		this._head = node;
+		this._size++;
+	}
 }
