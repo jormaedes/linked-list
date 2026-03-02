@@ -92,4 +92,15 @@ export default class LinkedList {
 		}
 		return -1;
 	}
+
+	toString() {
+		let head = this._head;
+		let str = "";
+		while (head) {
+			str += `( ${head.value} ) -> `;
+			head = head.next;
+		}
+		str += " null";
+		return (str);
+	}
 }
