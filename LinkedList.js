@@ -107,7 +107,7 @@ export default class LinkedList {
 	insertAt(index, ...values)
 	{
 		if (index < 0 || index > this._size)
-			throw RangeError("RangeError");
+			throw RangeError();
 		let nodeBefore = this.at(index - 1);
 		let nodeCurrent = this.at(index);
 		let i = 0;
@@ -126,5 +126,21 @@ export default class LinkedList {
 		nodeBefore.next = nodeCurrent;
 		if (!nodeCurrent)
 			this._tail = nodeBefore;
+	}
+
+	removeAt(index) {
+		if (index < 0 || index >= this._size)
+			throw RangeError();
+		let nodeBefore = this.at(index - 1);
+		let nodeCurrent = this.at(index);
+		if (index == this._size - 1)
+			this._tail = nodeBefore;
+		if (!nodeBefore) {
+			this._head = nodeCurrent.next;
+			this._size--;
+			return ;
+		}
+		nodeBefore.next = nodeCurrent.next;
+		this._size--;
 	}
 }
