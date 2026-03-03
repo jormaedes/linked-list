@@ -106,7 +106,7 @@ export default class LinkedList {
 
 	insertAt(index, ...values)
 	{
-		if (index < 0 || index >= this._size)
+		if (index < 0 || index > this._size)
 			throw RangeError("RangeError");
 		let nodeBefore = this.at(index - 1);
 		let nodeCurrent = this.at(index);
@@ -124,5 +124,7 @@ export default class LinkedList {
 			this._size++;
 		}
 		nodeBefore.next = nodeCurrent;
+		if (!nodeCurrent)
+			this._tail = nodeBefore;
 	}
 }
