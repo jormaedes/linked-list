@@ -69,10 +69,10 @@ export default class LinkedList {
 		if (index < 0 || index >= this._size)
 			return undefined;
 		let head = this._head;
-		for (let i = 0; i < this._size; i++) {
-			if (i == index) return head;
+		for (let i = 0; i < index; i++) {
 			head = head.next;
 		}
+		return head;
 	}
 
 	contains(value) {
